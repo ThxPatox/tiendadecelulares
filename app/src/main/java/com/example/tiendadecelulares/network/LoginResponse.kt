@@ -12,5 +12,6 @@ data class User(
     val ID: Int,
     val EMAIL: String,
     val IS_ADMIN: Int,
+    val IS_BLOCKED: Int,
     val CREATED_AT: String
 )

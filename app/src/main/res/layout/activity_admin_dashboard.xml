@@ -11,21 +11,33 @@
     <Button
         android:id="@+id/manage_users_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200px"
+        android:textSize="20sp"
         android:text="Gestionar Usuarios" />
 
     <Button
         android:id="@+id/manage_products_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200px"
         android:layout_marginTop="16dp"
+        android:textSize="20sp"
         android:text="Gestionar Productos" />
 
-    <Button
+    <!-- <Button
         android:id="@+id/manage_orders_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200px"
         android:layout_marginTop="16dp"
-        android:text="Gestionar Pedidos" />
+        android:textSize="20sp"
+        android:text="Gestionar Pedidos" /> -->
+
+    <Button
+        android:id="@+id/btn_go_to_products"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="Ir a lista de productos" />
+
 
 </LinearLayout>

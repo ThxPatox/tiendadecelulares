@@ -44,17 +44,26 @@ class AdminUserListActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleUserBlock(user: User) {
-        lifecycleScope.launch {
-            try {
-                //val updatedUser = user.copy(isBlocked = !(user.isBlocked ?: false))
-                //RetrofitInstance.api.updateUser(user.id, updatedUser)
-                fetchUsers()
-            } catch (e: Exception) {
-                Log.e("AdminUserListActivity", "Error al actualizar el usuario", e)
-            }
+    // Activity
+private fun toggleUserBlock(user: User) {
+    lifecycleScope.launch {
+        try {
+            // Alterna el valor real
+            val updatedUser = user.copy(IS_BLOCKED = if (user.IS_BLOCKED == 0) 1 else 0)
+
+            // Enviar PUT con el valor alternado
+            RetrofitInstance.api.updateUser(updatedUser.ID, updatedUser)
+
+            // Refresca la lista
+            fetchUsers()
+
+        } catch (e: Exception) {
+            Log.e("AdminUserListActivity", "Error al actualizar el usuario", e)
         }
     }
+}
+
+
 
     override fun finish() {
         super.finish()

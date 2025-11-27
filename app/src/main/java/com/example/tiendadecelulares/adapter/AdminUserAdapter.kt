@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiendadecelulares.R
+import com.example.tiendadecelulares.network.RetrofitInstance
 import com.example.tiendadecelulares.network.User
 
 class AdminUserAdapter(
@@ -24,6 +25,7 @@ class AdminUserAdapter(
         val user = userList[position]
         holder.bind(user)
         holder.blockButton.setOnClickListener { onBlockClicked(user) }
+
     }
 
     override fun getItemCount(): Int = userList.size
@@ -39,16 +41,14 @@ class AdminUserAdapter(
         val blockButton: Button = itemView.findViewById(R.id.block_user_button)
 
         fun bind(user: User) {
-            // Mostrar nombre si existe, sino mostrar email como título
-            val displayName =  user.EMAIL
+            val displayName = user.EMAIL
             nameTextView.text = displayName
             emailTextView.text = user.EMAIL
 
-            // Si tu backend tiene isBlocked, alternar texto; si no, show "Bloquear"
-            //val blocked = user.isBlocked ?: false
-            //blockButton.text = if (blocked) "Desbloquear" else "Bloquear"
+            val blocked = user.IS_BLOCKED == 1
+            blockButton.text = if (blocked) "Desbloquear" else "Bloquear"
 
-            // (Opcional) puedes cambiar color o estilo del botón según blocked
         }
     }
 }
+

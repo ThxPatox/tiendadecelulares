@@ -13,6 +13,7 @@ import com.example.tiendadecelulares.network.LoginResponse
 import com.example.tiendadecelulares.network.RetrofitInstance
 import com.example.tiendadecelulares.util.SessionManager
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.HttpException
 
 // arriba de la clase MainActivity
@@ -127,10 +128,21 @@ class MainActivity : AppCompatActivity() {
             }
 
         } catch (he: HttpException) {
-            // 4xx/5xx — intenta leer errorBody si es posible
-            val err = try { he.response()?.errorBody()?.string() } catch (_: Exception) { null }
-            Log.e("MainActivity", "HTTP error login: code=${he.code()} body=$err")
-            Toast.makeText(this@MainActivity, "Error: Credenciales incorrectas o problema del servidor.", Toast.LENGTH_LONG).show()
+            // 4xx / 5xx
+            val errorBody = he.response()?.errorBody()?.string()
+            var errorMessage = "Error: Credenciales incorrectas o problema del servidor."
+
+            errorBody?.let {
+                try {
+                    val json = JSONObject(it)
+                    errorMessage = json.optString("message", errorMessage)
+                } catch (ex: Exception) {
+                    // JSON malformado
+                }
+            }
+        
+            Log.e("MainActivity", "HTTP error login: code=${he.code()} body=$errorBody")
+            Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG).show()
         } catch (ex: Exception) {
             Log.e("MainActivity", "performLogin error", ex)
             Toast.makeText(this@MainActivity, "Error de conexión: ${ex.message}", Toast.LENGTH_LONG).show()

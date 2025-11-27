@@ -13,7 +13,8 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         val manageUsersButton: Button = findViewById(R.id.manage_users_button)
         val manageProductsButton: Button = findViewById(R.id.manage_products_button)
-        val manageOrdersButton: Button = findViewById(R.id.manage_orders_button)
+        //val manageOrdersButton: Button = findViewById(R.id.manage_orders_button)
+        val goToProductListButton: Button = findViewById(R.id.btn_go_to_products)
 
         manageUsersButton.setOnClickListener {
             val intent = Intent(this, AdminUserListActivity::class.java)
@@ -27,8 +28,15 @@ class AdminDashboardActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
-        manageOrdersButton.setOnClickListener {
-            // TODO: Navigate to an activity to manage orders
+        //manageOrdersButton.setOnClickListener {
+        //    // futuro
+        //    overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        //}
+
+        // ⭐ Aquí navegas a ProductListActivity
+        goToProductListButton.setOnClickListener {
+            val intent = Intent(this, ProductListActivity::class.java)
+            startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
