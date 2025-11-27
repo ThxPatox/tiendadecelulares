@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema Principal de la Aplicación -->
+    <style name="Base.Theme.TiendaDeCelulares" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores Primarios -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Colores Secundarios -->
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Color de Fondo -->
+        <item name="android:windowBackground">@color/windowBackground</item>
+
+        <!-- Estilos de Texto -->
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textColorHint">@color/textColorSecondary</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+
+        <!-- Estilo de Botones -->
+        <item name="buttonStyle">@style/AppButton</item>
+    </style>
+
+    <style name="Theme.TiendaDeCelulares" parent="Base.Theme.TiendaDeCelulares" />
+
+    <!-- Estilo para Botones -->
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+</resources>

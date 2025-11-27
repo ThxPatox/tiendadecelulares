@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta de Colores Inspirada en Mercado Libre -->
+    <color name="mercado_libre_yellow">#FFF159</color> <!-- Amarillo Principal -->
+    <color name="mercado_libre_blue">#3483FA</color> <!-- Azul para Botones y Enlaces -->
+    <color name="mercado_libre_background">#F5F5F5</color> <!-- Gris Claro para Fondos -->
+
+    <!-- Colores Neutros y de Texto -->
+    <color name="text_primary">#333333</color> <!-- Negro para Títulos -->
+    <color name="text_secondary">#666666</color> <!-- Gris para Subtítulos -->
+
+    <!-- Colores antiguos (se pueden eliminar o reemplazar gradualmente) -->
+    <color name="colorPrimary">#2C3E50</color>
+    <color name="colorPrimaryDark">#1B2631</color>
+    <color name="colorAccent">#3498DB</color>
+    <color name="windowBackground">#ECF0F1</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+
+    <!-- Colores estándar -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
