@@ -30,6 +30,8 @@ class ProductListActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var fabCart: FloatingActionButton
     private lateinit var fabAddProduct: FloatingActionButton
+    private lateinit var fabAdminDashboard: FloatingActionButton
+
 
     private var searchQuery: String? = null
     private var userId: Long = 0L
@@ -48,6 +50,7 @@ class ProductListActivity : AppCompatActivity() {
         emptyListTextView = findViewById(R.id.empty_list_text)
         fabCart = findViewById(R.id.fab_cart)
         fabAddProduct = findViewById(R.id.fab_add_product)
+        fabAdminDashboard = findViewById(R.id.fab_admin_dashboard)
 
         setupRecyclerView()
         setupFabs()
@@ -76,15 +79,25 @@ class ProductListActivity : AppCompatActivity() {
         }
 
         if (sessionManager.fetchUserRole() == "admin") {
-            fabAddProduct.visibility = View.VISIBLE
-            fabAddProduct.setOnClickListener {
-                val intent = Intent(this, AddEditProductActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            }
-        } else {
-            fabAddProduct.visibility = View.GONE
-        }
+    fabAddProduct.visibility = View.VISIBLE
+    fabAddProduct.setOnClickListener {
+        val intent = Intent(this, AddEditProductActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
+    fabAdminDashboard.visibility = View.VISIBLE
+    fabAdminDashboard.setOnClickListener {
+        val intent = Intent(this, AdminDashboardActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
+
+} else {
+    fabAddProduct.visibility = View.GONE
+    fabAdminDashboard.visibility = View.GONE
+}
+
     }
 
     private fun fetchProducts() {

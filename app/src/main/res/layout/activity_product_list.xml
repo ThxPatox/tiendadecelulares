@@ -51,6 +51,19 @@
         android:textColor="@color/text_secondary"
         android:visibility="gone"
         tools:visibility="gone" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab_admin_dashboard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="160dp"
+    android:backgroundTint="@color/mercado_libre_blue"
+    android:src="@android:drawable/ic_menu_manage"
+    app:tint="@android:color/white"
+    android:contentDescription="Ir al panel de administración"
+    android:visibility="gone"/>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_product"
@@ -65,16 +78,6 @@
         android:visibility="gone"
         android:contentDescription="Añadir nuevo producto" />
 
-    <TextView
-       android:id="@+id/tv_hola_mundo"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Hola Mundo"
-       android:textColor="@color/text_primary"
-       android:textSize="18sp"
-       android:layout_gravity="center_horizontal"
-       android:layout_marginBottom="16dp"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_cart"
         android:layout_width="wrap_content"
@@ -82,7 +85,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:backgroundTint="@color/mercado_libre_blue"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@android:drawable/ic_menu_gallery"
         app:tint="@android:color/white"
         android:contentDescription="Ver carrito de compras" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout> 

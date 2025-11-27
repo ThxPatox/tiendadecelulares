@@ -23,7 +23,8 @@ class SessionManager(context: Context) {
         val editor = prefs.edit()
         editor.putLong("USER_ID", userId)
         editor.putString("USER_EMAIL", email)
-        editor.putInt("USER_IS_ADMIN", isAdmin)
+        val role = if (isAdmin == 1) "admin" else "user"
+        editor.putString(USER_ROLE, role)
         editor.apply()
     }
 

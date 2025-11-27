@@ -11,10 +11,10 @@ interface XanoApiService {
     @POST("auth/login")
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 
-    @GET("user")
+    @GET("users")
     suspend fun getUsers(): List<User>
 
-    @PUT("user/{user_id}")
+    @PUT("users/{user_id}")
     suspend fun updateUser(@Path("user_id") userId: Int, @Body user: User): User
 
     @GET("orders/{user_id}")

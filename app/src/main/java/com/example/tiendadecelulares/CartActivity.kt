@@ -68,9 +68,18 @@ class CartActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == LOGIN_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val userId = sessionManager.fetchUserId()
-            if (userId != -1L) {
-                performCheckout(userId.toInt())
+            val userRole = sessionManager.fetchUserRole()
+            if (userRole == "admin") {
+                val intent = Intent(this, AdminDashboardActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                finish()
+            } else {
+                val userId = sessionManager.fetchUserId()
+                if (userId != -1L) {
+                    performCheckout(userId.toInt())
+                }
             }
         }
     }
